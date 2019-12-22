@@ -34,46 +34,41 @@ int main(void)
 
 	while (1)
 	{
-		LED1_ON;			  // ÁÁ
+		LED7(OFF);
+		LED0(ON);
 		SOFT_DELAY;
-		LED1_OFF;		   	  // Ãð
+		
+		LED0(OFF);
+		LED1(ON);
+		SOFT_DELAY;
+		
+		LED1(OFF);
+		LED2(ON);
+		SOFT_DELAY;
 
-		LED2_ON;			 // ÁÁ
+		LED2(OFF);
+		LED3(ON);
 		SOFT_DELAY;
-		LED2_OFF;		   	 // Ãð
+		
+		LED3(OFF);
+		LED4(ON);
+		SOFT_DELAY;
 
-		LED3_ON;			 // ÁÁ
+		LED4(OFF);
+		LED5(ON);
 		SOFT_DELAY;
-		LED3_OFF;		   	 // Ãð	 
+		
+		LED5(OFF);
+		LED6(ON);
+		SOFT_DELAY;
 
-		/*ÂÖÁ÷ÏÔÊ¾ ºìÂÌÀ¶»Æ×ÏÇà°× ÑÕÉ«*/
-		LED_RED;
-		SOFT_DELAY;
-		
-		LED_GREEN;
-		SOFT_DELAY;
-		
-		LED_BLUE;
-		SOFT_DELAY;
-		
-		LED_YELLOW;
-		SOFT_DELAY;
-		
-		LED_PURPLE;
-		SOFT_DELAY;
-				
-		LED_CYAN;
-		SOFT_DELAY;
-		
-		LED_WHITE;
-		SOFT_DELAY;
-		
-		LED_RGBOFF;
+		LED6(OFF);
+		LED7(ON);
 		SOFT_DELAY;		
 	}
 }
 
-void Delay(__IO uint32_t nCount)	 //¼òµ¥µÄÑÓÊ±º¯Êý
+void Delay(__IO uint32_t nCount)
 {
 	for(; nCount != 0; nCount--);
 }
