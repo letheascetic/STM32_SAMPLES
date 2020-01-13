@@ -23,6 +23,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x_it.h"
+#include "bsp_usart.h"
 
 /** @addtogroup STM32F10x_StdPeriph_Template
   * @{
@@ -142,6 +143,18 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f10x_xx.s).                                            */
 /******************************************************************************/
+
+// 串口中断服务函数
+void DEBUG_USART_IRQHandler(void)
+{
+	uint8_t ucTemp;
+	if(USART_GetITStatus(DEBUG_USARTx,USART_IT_RXNE)!=RESET)
+	{		
+		ucTemp = USART_ReceiveData(DEBUG_USARTx);
+		USART_SendData(DEBUG_USARTx,ucTemp);    
+	}	 
+}
+
 
 /**
   * @brief  This function handles PPP interrupt request.

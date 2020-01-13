@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>DEFAULT</TargetName>
+      <TargetName>USART</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>..\..\Output\</OutputDirectory>
-          <OutputName>Default</OutputName>
+          <OutputName>USART</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F10X_HD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Libraries\CMSIS;..\..\Libraries\FWLIB\inc;..\..\User</IncludePath>
+              <IncludePath>..\..\Libraries\CMSIS;..\..\Libraries\FWLIB\inc;..\..\User;..\..\Bsp</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -535,6 +535,21 @@
               <FileName>stm32f10x_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\User\stm32f10x_it.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>BSP</GroupName>
+          <Files>
+            <File>
+              <FileName>bsp_led.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Bsp\bsp_led.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Bsp\bsp_usart.c</FilePath>
             </File>
           </Files>
         </Group>
