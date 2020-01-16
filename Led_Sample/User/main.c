@@ -27,7 +27,7 @@ int main(void)
 
 	while (1)
 	{
-		LED7(OFF);
+		LED2(OFF);
 		LED0(ON);
 		SOFT_DELAY;
 		
@@ -37,27 +37,7 @@ int main(void)
 		
 		LED1(OFF);
 		LED2(ON);
-		SOFT_DELAY;
-
-		LED2(OFF);
-		LED3(ON);
-		SOFT_DELAY;
-		
-		LED3(OFF);
-		LED4(ON);
-		SOFT_DELAY;
-
-		LED4(OFF);
-		LED5(ON);
-		SOFT_DELAY;
-		
-		LED5(OFF);
-		LED6(ON);
-		SOFT_DELAY;
-
-		LED6(OFF);
-		LED7(ON);
-		SOFT_DELAY;		
+		SOFT_DELAY;	
 	}
 }
 
