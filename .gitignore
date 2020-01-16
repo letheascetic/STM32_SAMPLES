@@ -51,7 +51,7 @@
 *.SBR
  
 # Build Files
-*.BAT
+# *.BAT
 *._IA
 *.__I
 *._II
