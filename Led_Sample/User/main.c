@@ -11,7 +11,7 @@
 #include "stm32f10x.h"
 #include "bsp_led.h"
 
-#define SOFT_DELAY Delay(0x0FFFFF);
+#define SOFT_DELAY Delay(0x3FFFFF);
 
 void Delay(__IO u32 nCount); 
 
