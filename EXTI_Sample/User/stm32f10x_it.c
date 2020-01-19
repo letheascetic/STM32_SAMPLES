@@ -150,31 +150,28 @@ void SysTick_Handler(void)
   * @param  None
   * @retval None
   */
-void EXTI15_10_IRQHandler(void)
+void KEY0_IRQHandler(void)
 {
-	//»∑±£ «∑Ò≤˙…˙¡ÀEXTI Line÷–∂œ
+	//Á°Æ‰øùÊòØÂê¶‰∫ßÁîü‰∫Ü EXTI Line ‰∏≠Êñ≠
 	if(EXTI_GetITStatus(KEY0_INT_EXTI_LINE) != RESET) 
 	{		
 		LED0_TOGGLE;
 		EXTI_ClearITPendingBit(KEY0_INT_EXTI_LINE);     
 	}
+}
 
+/**
+  * @brief  This function handles PPP interrupt request.
+  * @param  None
+  * @retval None
+  */
+void KEY1_IRQHandler(void)
+{
+	//Á°Æ‰øùÊòØÂê¶‰∫ßÁîü‰∫Ü EXTI Line ‰∏≠Êñ≠
 	if(EXTI_GetITStatus(KEY1_INT_EXTI_LINE) != RESET) 
 	{		
 		LED1_TOGGLE;
-		EXTI_ClearITPendingBit(KEY1_INT_EXTI_LINE);     
-	}
-
-	if(EXTI_GetITStatus(KEY2_INT_EXTI_LINE) != RESET) 
-	{		
-		LED1_TOGGLE;
-		EXTI_ClearITPendingBit(KEY2_INT_EXTI_LINE);     
-	}
-
-	if(EXTI_GetITStatus(KEY3_INT_EXTI_LINE) != RESET) 
-	{		
-		LED1_TOGGLE;
-		EXTI_ClearITPendingBit(KEY3_INT_EXTI_LINE);     
+		EXTI_ClearITPendingBit(KEY0_INT_EXTI_LINE);     
 	}
 }
 
