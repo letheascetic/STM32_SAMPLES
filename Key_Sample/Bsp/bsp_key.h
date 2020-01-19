@@ -3,14 +3,14 @@
 
 #include "stm32f10x.h"
 
-// KEY0~KEY3
-#define		KEY_GPIO_PORT		GPIOB
-#define		KEY_GPIO_CLK		RCC_APB2Periph_GPIOB
-#define		KEY0_GPIO_PIN		GPIO_Pin_12
-#define		KEY1_GPIO_PIN		GPIO_Pin_13
-#define		KEY2_GPIO_PIN		GPIO_Pin_14
-#define		KEY3_GPIO_PIN		GPIO_Pin_15
-#define		KEY_GPIO_PIN_ALL	(KEY0_GPIO_PIN|KEY1_GPIO_PIN|KEY2_GPIO_PIN|KEY3_GPIO_PIN)
+// KEY0
+#define		KEY0_GPIO_CLK			RCC_APB2Periph_GPIOA
+#define		KEY0_GPIO_PORT		GPIOA
+#define		KEY0_GPIO_PIN			GPIO_Pin_0
+
+#define		KEY1_GPIO_CLK			RCC_APB2Periph_GPIOC
+#define		KEY1_GPIO_PORT		GPIOC
+#define		KEY1_GPIO_PIN			GPIO_Pin_13
 
 #define KEY_ON 0
 #define KEY_OFF 1
