@@ -171,7 +171,7 @@ void KEY1_IRQHandler(void)
 	if(EXTI_GetITStatus(KEY1_INT_EXTI_LINE) != RESET) 
 	{		
 		LED1_TOGGLE;
-		EXTI_ClearITPendingBit(KEY0_INT_EXTI_LINE);     
+		EXTI_ClearITPendingBit(KEY1_INT_EXTI_LINE);     
 	}
 }
 
