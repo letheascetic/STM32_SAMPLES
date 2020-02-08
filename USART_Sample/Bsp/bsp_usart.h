@@ -2,6 +2,7 @@
 #define __USART_H__
 
 #include "stm32f10x.h"
+#include <stdio.h>
 
 // 串口1 - USART1 (使用APB2总线，不同的USARTx使用不同的APBx总线，查询文档确定)
 #define  DEBUG_USARTx                   USART1
