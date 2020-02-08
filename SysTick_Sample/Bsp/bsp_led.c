@@ -4,44 +4,44 @@
   * @author  ascetic
   * @version V0.2
   * @date    2019-12-22
-  * @brief   led api
+  * @brief   ledåº”ç”¨å‡½æ•°æ¥å£
   ******************************************************************************
   */
   
 #include "bsp_led.h"   
 
  /**
-  * @brief  ³õÊ¼»¯¿ØÖÆLEDµÄIO
-  * @param  ÎŞ
-  * @retval ÎŞ
+  * @brief  åˆå§‹åŒ–æ§åˆ¶LEDçš„IO
+  * @param  æ— 
+  * @retval æ— 
   */
 void LED_GPIO_Config(void)
 {		
-		/*¶¨ÒåÒ»¸öGPIO_InitTypeDefÀàĞÍµÄ½á¹¹Ìå*/
+		/*å®šä¹‰ä¸€ä¸ªGPIO_InitTypeDefç±»å‹çš„ç»“æ„ä½“*/
 		GPIO_InitTypeDef GPIO_InitStructure;
 
-		/*¿ªÆôLEDÏà¹ØµÄGPIOÍâÉèÊ±ÖÓ*/
-		RCC_APB2PeriphClockCmd(LED_GPIO_CLK, ENABLE);
+		/*å¼€å¯LEDç›¸å…³çš„GPIOå¤–è®¾æ—¶é’Ÿ*/
+		RCC_APB2PeriphClockCmd(LED0_GPIO_CLK | LED1_GPIO_CLK | LED2_GPIO_CLK, ENABLE);
 	
-		/*Ñ¡ÔñÒª¿ØÖÆµÄGPIOÒı½Å*/
-		GPIO_InitStructure.GPIO_Pin = LED_GPIO_PIN_ALL;	
-
-		/*ÉèÖÃÒı½ÅÄ£Ê½ÎªÍ¨ÓÃÍÆÍìÊä³ö*/
+		/*********************************LED0**********************************************/
+		/*é€‰æ‹©è¦æ§åˆ¶çš„GPIOå¼•è„š*/
+		GPIO_InitStructure.GPIO_Pin = LED0_GPIO_PIN;	
+		/*è®¾ç½®å¼•è„šæ¨¡å¼ä¸ºé€šç”¨æ¨æŒ½è¾“å‡º*/
 		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;   
-
-		/*ÉèÖÃÒı½ÅËÙÂÊÎª50MHz */   
+		/*è®¾ç½®å¼•è„šé€Ÿç‡ä¸º50MHz */   
 		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
-
-		/*µ÷ÓÃ¿âº¯Êı£¬³õÊ¼»¯GPIO*/
-		GPIO_Init(LED_GPIO_PORT, &GPIO_InitStructure);	
+		/*è°ƒç”¨åº“å‡½æ•°ï¼Œåˆå§‹åŒ–GPIO*/
+		GPIO_Init(LED0_GPIO_PORT, &GPIO_InitStructure);	
+		/*********************************LED1&LED2**********************************************/
+		GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN;
+		GPIO_Init(LED1_GPIO_PORT, &GPIO_InitStructure);	
+		GPIO_InitStructure.GPIO_Pin = LED2_GPIO_PIN;
+		GPIO_Init(LED2_GPIO_PORT, &GPIO_InitStructure);	
 		
-		/* ¹Ø±ÕËùÓĞledµÆ	*/
-		GPIO_SetBits(LED_GPIO_PORT, LED_GPIO_PIN_ALL);
-}
-
-void LED_Toggle(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
-{
-	DigitalToggle(GPIOx, GPIO_Pin);
+		/* å…³é—­æ‰€æœ‰ledç¯	*/
+		GPIO_SetBits(LED0_GPIO_PORT, LED0_GPIO_PIN);
+		GPIO_SetBits(LED1_GPIO_PORT, LED1_GPIO_PIN);
+		GPIO_SetBits(LED2_GPIO_PORT, LED2_GPIO_PIN);
 }
 
 /*********************************************END OF FILE**********************/

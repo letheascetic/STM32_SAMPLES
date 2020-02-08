@@ -1,8 +1,43 @@
-#include "stm32f10x.h"   // Ïàµ±ÓÚ51µ¥Æ¬»úÖĞµÄ  #include <reg51.h>
+/**
+  ******************************************************************************
+  * @file    main.c
+  * @author  ascetic
+  * @version V0.1
+  * @date    2020-01-19
+  * @brief   Systickç³»ç»Ÿæ—¶é’Ÿæµ‹è¯•
+  ******************************************************************************
+  */ 
 
+#include "stm32f10x.h"   
+#include "bsp_led.h"
+#include "bsp_systick.h"
+
+/**
+  * @brief  ä¸»å‡½æ•°
+  * @param  æ— 
+  * @retval æ— 
+  */ 
 int main(void)
 {
-	// À´µ½ÕâÀïµÄÊ±ºò£¬ÏµÍ³µÄÊ±ÖÓÒÑ¾­±»ÅäÖÃ³É72M¡£
+	LED_GPIO_Config();
+	
+	/* é…ç½®SysTick ä¸º10usä¸­æ–­ä¸€æ¬¡ */
+	SysTick_Init();
+	
+	while (1) {
+		LED0( ON ); 
+	    Delay_us(100000);    	// 100000 * 10us = 1000ms
+		LED0( OFF );
+	  
+		LED1( ON );
+	    Delay_us(100000);		// 100000 * 10us = 1000ms
+		LED1( OFF );
+	
+		LED2( ON );
+	    Delay_us(100000);		// 100000 * 10us = 1000ms
+		LED2( OFF );
+	}
+	
 }
 
 

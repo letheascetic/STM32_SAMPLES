@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    bsp_key.c
   * @author  ascetic
-  * @version V0.2
-  * @date    2019-12-22
+  * @version V0.3
+  * @date    2020-01-19
   * @brief   key api
   ******************************************************************************
   */ 
@@ -24,36 +24,32 @@ void KEY_GPIO_Config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	RCC_APB2PeriphClockCmd(KEY_GPIO_CLK, ENABLE);
-	GPIO_InitStructure.GPIO_Pin = KEY_GPIO_PIN_ALL;
+	RCC_APB2PeriphClockCmd(KEY0_GPIO_CLK | KEY1_GPIO_CLK, ENABLE);
 	
-	// ÉèÖÃ°´¼üµÄÒı½ÅÎª¸¡¿ÕÊäÈë
+	GPIO_InitStructure.GPIO_Pin = KEY0_GPIO_PIN;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-	GPIO_Init(KEY_GPIO_PORT, &GPIO_InitStructure);
+	GPIO_Init(KEY0_GPIO_PORT, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = KEY1_GPIO_PIN;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+	GPIO_Init(KEY1_GPIO_PORT, &GPIO_InitStructure);
 }
 
 /**
-* @brief ¼ì²âÊÇ·ñÓĞ°´¼ü°´ÏÂ
-* @param GPIOx:¾ßÌåµÄ¶Ë¿Ú, x ¿ÉÒÔÊÇ£¨A...G£©
-* @param GPIO_PIN:¾ßÌåµÄ¶Ë¿ÚÎ»£¬ ¿ÉÒÔÊÇ GPIO_PIN_x£¨x ¿ÉÒÔÊÇ 0...15£©
-* @retval °´¼üµÄ×´Ì¬
-* @arg KEY_ON:°´¼ü°´ÏÂ
-* @arg KEY_OFF:°´¼üÃ»°´ÏÂ
+* @brief æ£€æµ‹æ˜¯å¦æœ‰æŒ‰é”®æŒ‰ä¸‹
+* @param GPIOx:å…·ä½“çš„ç«¯å£, x å¯ä»¥æ˜¯ï¼ˆA...Gï¼‰
+* @param GPIO_PIN:å…·ä½“çš„ç«¯å£ä½ï¼Œ å¯ä»¥æ˜¯ GPIO_PIN_xï¼ˆx å¯ä»¥æ˜¯ 0...15ï¼‰
+* @retval æŒ‰é”®çš„çŠ¶æ€
+* @arg KEY_ON:æŒ‰é”®æŒ‰ä¸‹
+* @arg KEY_OFF:æŒ‰é”®æ²¡æŒ‰ä¸‹
 */
 uint8_t Key_Scan(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
 {
-	uint8_t key_status = KEY_OFF;
 	if (GPIO_ReadInputDataBit(GPIOx, GPIO_Pin) == KEY_ON) {
-
-		SOFT_DELAY;
-		if(GPIO_ReadInputDataBit(GPIOx, GPIO_Pin) == KEY_ON)
-		{
-			key_status = KEY_ON;
-			while (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON);
-		}
-		return key_status;
+		while (GPIO_ReadInputDataBit(GPIOx,GPIO_Pin) == KEY_ON);
+		return KEY_ON;
 	} else
-		return key_status;
+		return KEY_OFF;
 }
 
 void Delay(__IO uint32_t nCount)
