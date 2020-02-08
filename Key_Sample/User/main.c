@@ -23,11 +23,11 @@ int main(void)
 		{
 			LED0_TOGGLE;
 		}
-		
+
 		if (Key_Scan(KEY1_GPIO_PORT, KEY1_GPIO_PIN) == KEY_ON)
 		{
 			LED1_TOGGLE;
-		}		
+		}	
 	}
 }
 
