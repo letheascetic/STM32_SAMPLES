@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>USART</TargetName>
+      <TargetName>DMA</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
@@ -49,7 +49,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>..\..\Output\</OutputDirectory>
-          <OutputName>USART</OutputName>
+          <OutputName>DMA</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -551,6 +551,16 @@
               <FileName>bsp_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Bsp\bsp_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Bsp\bsp_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_dma.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Bsp\bsp_dma.h</FilePath>
             </File>
           </Files>
         </Group>
